@@ -1,0 +1,31 @@
+CREATE DATABASE IF NOT EXISTS universite_db;
+USE universite_db;
+
+CREATE TABLE IF NOT EXISTS dersler (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ders_adi VARCHAR(100)
+);
+
+CREATE TABLE IF NOT EXISTS ogrenciler (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ad_soyad VARCHAR(50),
+    sehir VARCHAR(50),
+    vize_notu INT,
+    final_notu INT,
+    ders_id INT
+);
+
+INSERT INTO dersler (ders_adi) VALUES 
+('Algoritma Tasarımı'), 
+('Veri Tabanı Yönetimi'), 
+('Web Programlama');
+
+INSERT INTO ogrenciler (ad_soyad, sehir, vize_notu, final_notu, ders_id) VALUES
+('Hakime Özensel', 'Tekirdağ', 85, 90, 1),
+('Mervel Karabıyık', 'Kahramanmaraş', 70, 80, 2),
+('Katriye Topak', 'Konya', 45, 55, 1),
+('Betus Kurtcuk', 'Adana', NULL, NULL, 3);
+
+SELECT ogrenciler.ad_soyad, dersler.ders_adi, ogrenciler.final_notu
+FROM ogrenciler
+INNER JOIN dersler ON ogrenciler.ders_id = dersler.id;

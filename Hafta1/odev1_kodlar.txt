@@ -1,0 +1,19 @@
+CREATE DATABASE Odev1;
+USE Odev1;
+
+CREATE TABLE Kisilerim (
+    id INT PRIMARY KEY,
+    ad VARCHAR(50) NOT NULL,
+    soyad VARCHAR(50) NOT NULL,
+    telefon VARCHAR(15),
+    eposta VARCHAR(100),
+    sehir VARCHAR(30)
+);
+
+INSERT INTO Kisilerim (id, ad, soyad, telefon, eposta, sehir) VALUES 
+(1, 'Hakime', 'Özensel', '05555555555', 'halime.ozensel05@gmail.com', 'Tekirdağ'),
+(2, 'Mervel', 'Karabıyık', '05322223344', 'mervelmervel@email.com', 'Kahramanmaraş'),
+(3, 'Katriye', 'Topak', '05443334455', 'topaktopak@email.com', 'Konya'),
+(4, 'Betus', 'Kurtcuk', '05030303030', 'bestbetus@gmail.com', 'Adana');
+
+SELECT id, ad, soyad, telefon, eposta, sehir FROM Kisilerim;
